@@ -20,7 +20,10 @@ width: 50%;
 
 .signup-form {
     border-radius: 50px;
-    background-color: #d5d5d5;
+    border-style: solid;
+    border-color: black;
+    border-width:5px;
+    background-color: rgb(48, 98, 69);
     padding: 20px;
     text-align: center;
 }
