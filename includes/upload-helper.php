@@ -20,17 +20,17 @@ if (isset($_POST['prof-submit'])) {
     $allowed = array('jpg','jpeg','png','svg');
 
     if ($file_error !== 0) {
-        header("Location:../profile.php?error=UploadError");
+        header("Location: ../profile.php?error=UploadError");
         exit();
     }
 
     if (!in_array($ext,$allowed)) {
-        header("Location:../profile.php?error=InvalidType");
+        header("Location: ../profile.php?error=InvalidType");
         exit();
     }
 
     if ($file_size > 4*MB) {
-        header("Location:../profile.php?error=FileTooBig");
+        header("Location: ../profile.php?error=FileTooBig");
         exit();
     }
 
@@ -40,12 +40,12 @@ if (isset($_POST['prof-submit'])) {
         $sql = "UPDATE profiles SET profpic='$destination' WHERE uname='$uname'";
         mysqli_query($conn,$sql);
         move_uploaded_file($file_temp_name,$destination);
-        header("Location:../profile.php?success=UpdatedIMG");
+        header("Location: ../profile.php?success=UpdatedIMG");
         exit();
         
     }
 
 } else {
-    header("Location:../profile.php");
+    header("Location: ../profile.php");
     exit();
 }
